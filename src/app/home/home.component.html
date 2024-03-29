@@ -1,3 +1,9 @@
+<link rel="preconnect" href="https://media4.giphy.com">
+<link rel="preconnect" href="https://media1.giphy.com">
+<link rel="preconnect" href="https://media2.giphy.com">
+<link rel="preconnect" href="https://media3.giphy.com">
+
+
 <header>
 
 <input type="text" placeholder="buscar gif" #filter  (keyup)="debounceGift(filter.value)" />
@@ -14,14 +20,19 @@
     <p>no se han encontrado gifs</p>
 }@else{
 
-@for (gif of gifs(); track gif.id) {
+@for (gif of gifs(); let i = $index ; track gif.id   ) {
 
 <a [routerLink]="['/gif',gif.id]">
+
+@if( i < 4){
+    <img [ngSrc]="gif.images.original.url" [width]="gif.images.original.width" [height]="gif.images.original.height" alt="gif.title" priority  />
+
+}@else{
     <img [src]="gif.images.original.url" [width]="gif.images.original.width" [height]="gif.images.original.height" alt="gif.title"  />
 
+}
 </a>
 
-
 }
 
 
@@ -29,5 +40,6 @@
 
 
 }
+
 <div appIntersection (onIntersection)="loadMore()" #last></div>
 </section>

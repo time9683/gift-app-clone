@@ -1,6 +1,6 @@
 import { Component,  Input, OnInit, inject, signal } from '@angular/core';
 import { GifService } from '@app/gif.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ActivatedRoute, RouterModule, RouterOutlet,Router } from '@angular/router';
 import { Gif } from '@app/gif';
 import { IntersectionDirective } from '@app/intersection.directive';
@@ -8,7 +8,7 @@ import { IntersectionDirective } from '@app/intersection.directive';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [[CommonModule,RouterOutlet,RouterModule,IntersectionDirective]],
+  imports: [[CommonModule,RouterOutlet,RouterModule,IntersectionDirective,NgOptimizedImage]],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
