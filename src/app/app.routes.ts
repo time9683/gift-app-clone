@@ -11,13 +11,13 @@ export const routes: Routes = [
     loadComponent:() => import('./gif/gif.component').then(m => m.GifComponent)
 },
 {
-    path: "hola",
+    path: "**",
     loadComponent:() => import('./not-found/not-found.component').then(m => m.NotFoundComponent)
 },
-{
-    path:"**",
-    redirectTo:"hola"
-}
+// {
+//     path:"**",
+//     redirectTo:"hola"
+// }
 
 
 ];
